@@ -1,9 +1,9 @@
 {
-  "name": "animeflix-frontend",
+  "name": "mediaflix-frontend",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://nadifadi0933x-source.github.io/mediaflix-data",
+  "homepage": "https://nadifadi0933x-source.github.io/mediaflix-data/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
