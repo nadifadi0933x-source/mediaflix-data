@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
+import { handleImageError } from '../utils/helpers'
 
 function Reader() {
   const { type, id, chapterNumber } = useParams()
@@ -46,6 +47,7 @@ function Reader() {
                 src={img} 
                 alt={`صفحه ${index + 1}`}
                 className="reader-image"
+                onError={handleImageError}
               />
             ))
           ) : (

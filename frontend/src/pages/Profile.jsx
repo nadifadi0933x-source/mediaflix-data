@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useFetch } from '../hooks/useFetch'
 import { useAuth } from '../hooks/useAuth'
 import { Link } from 'react-router-dom'
+import { PLACEHOLDER_COVER, handleImageError } from '../utils/helpers'
 
 function Profile() {
   const { user } = useAuth()
@@ -55,9 +56,10 @@ function Profile() {
                     <Link to={`/${item.item?.type || 'anime'}/${item.item?.id}`} key={item.id}>
                       <div className="card">
                         <img 
-                          src={item.item?.coverImage} 
+                          src={item.item?.coverImage || PLACEHOLDER_COVER} 
                           alt={item.item?.title}
                           className="card-image"
+                          onError={handleImageError}
                         />
                         <div className="card-content">
                           <h3 className="card-title">{item.item?.title}</h3>

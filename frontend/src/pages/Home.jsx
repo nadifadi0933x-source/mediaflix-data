@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import { GENRES } from '../utils/constants'
+import { PLACEHOLDER_COVER, handleImageError } from '../utils/helpers'
 
 function Home() {
   const [selectedGenre, setSelectedGenre] = useState('')
@@ -48,9 +49,10 @@ function Home() {
                 <Link to={`/anime/${anime.id}`} key={anime.id}>
                   <div className="card">
                     <img 
-                      src={anime.coverImage} 
+                      src={anime.coverImage || PLACEHOLDER_COVER} 
                       alt={anime.title}
                       className="card-image"
+                      onError={handleImageError}
                     />
                     <div className="card-content">
                       <h3 className="card-title">{anime.title}</h3>

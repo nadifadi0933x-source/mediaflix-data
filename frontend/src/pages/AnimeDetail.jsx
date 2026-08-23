@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import { useAuth } from '../hooks/useAuth'
 import { usePost } from '../hooks/useFetch'
+import { PLACEHOLDER_COVER, handleImageError } from '../utils/helpers'
 
 function AnimeDetail() {
   const { id } = useParams()
@@ -29,7 +30,7 @@ function AnimeDetail() {
     <div className="anime-detail">
       <div className="container">
         <div className="detail-header">
-          <img src={data.coverImage} alt={data.title} className="detail-cover" />
+          <img src={data.coverImage || PLACEHOLDER_COVER} alt={data.title} className="detail-cover" onError={handleImageError} />
           <div className="detail-info">
             <h1>{data.title}</h1>
             <div className="meta">

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
+import { PLACEHOLDER_COVER, handleImageError } from '../utils/helpers'
 
 function Search() {
   const [query, setQuery] = useState('')
@@ -51,9 +52,10 @@ function Search() {
             <Link to={`/${type}/${item.id}`} key={item.id}>
               <div className="card">
                 <img 
-                  src={item.coverImage} 
+                  src={item.coverImage || PLACEHOLDER_COVER} 
                   alt={item.title}
                   className="card-image"
+                  onError={handleImageError}
                 />
                 <div className="card-content">
                   <h3 className="card-title">{item.title}</h3>
